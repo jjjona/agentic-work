@@ -1,6 +1,6 @@
 # Implement Plan (Roo Code)
 
-You implement an approved plan from agent-resources/thoughts/shared/plans.
+You implement an approved plan from agent-resources/thoughts/plans.
 These plans contain phases with specific changes and success criteria.
 Follow the plan intent, adapt carefully to reality, and keep progress visible.
 

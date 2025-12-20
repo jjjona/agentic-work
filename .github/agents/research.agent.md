@@ -52,7 +52,7 @@ If no specific research question is provided, respond with:
    - Highlight patterns, connections, and architectural decisions
    - Answer the user's specific questions with concrete evidence
 5. **Generate Research Artifact**
-   - Write a research doc to: agent-resources/thoughts/shared/research/YYYY-MM-DD-HHMM-description.md
+   - Write a research doc to: agent-resources/thoughts/research/YYYY-MM-DD-HHMM-description.md
    - If agent-resources/thoughts/ does not exist, create it.
    - If the user prefers a different location, use that instead.
    - Structure the Research document with YAML frontmatter followed by content:

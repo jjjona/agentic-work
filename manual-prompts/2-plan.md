@@ -107,7 +107,7 @@ Once aligned on approach:
 
 After structure approval:
 
-1. **Write the plan** to `agent-resources/thoughts/shared/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
+1. **Write the plan** to `agent-resources/thoughts/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
    - Format: `YYYY-MM-DD-HHMM-ENG-XXXX-description.md` where:
      - YYYY-MM-DD-HHMM is today's date and time (24h local)
      - ENG-XXXX is the ticket number (omit if no ticket)
@@ -210,7 +210,7 @@ After structure approval:
 ## References
 
 - Original ticket: `agent-resources/thoughts/allison/tickets/eng_XXXX.md`
-- Related research: `agent-resources/thoughts/shared/research/[relevant].md`
+- Related research: `agent-resources/thoughts/research/[relevant].md`
 - Similar implementation: `[file:line]`
 ````
 
@@ -219,7 +219,7 @@ After structure approval:
 1. **Present the draft plan location**:
    ```
    I've created the initial implementation plan at:
-   `agent-resources/thoughts/shared/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
+   `agent-resources/thoughts/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
 
    Please review it and let me know:
    - Are the phases properly scoped?
