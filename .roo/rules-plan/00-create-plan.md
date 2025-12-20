@@ -107,14 +107,14 @@ Once aligned on approach:
 
 After structure approval:
 
-1. **Write the plan** to `agent-resources/thoughts/shared/plans/YYYY-MM-DD-ENG-XXXX-description.md`
-   - Format: `YYYY-MM-DD-ENG-XXXX-description.md` where:
-     - YYYY-MM-DD is today's date
+1. **Write the plan** to `agent-resources/thoughts/shared/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
+   - Format: `YYYY-MM-DD-HHMM-ENG-XXXX-description.md` where:
+     - YYYY-MM-DD-HHMM is today's date and time (24h local)
      - ENG-XXXX is the ticket number (omit if no ticket)
      - description is a brief kebab-case description
    - Examples:
-     - With ticket: `2025-01-08-ENG-1478-parent-child-tracking.md`
-     - Without ticket: `2025-01-08-improve-error-handling.md`
+     - With ticket: `2025-01-08-1430-ENG-1478-parent-child-tracking.md`
+     - Without ticket: `2025-01-08-1430-improve-error-handling.md`
 2. **Use this template structure**:
 
 ````markdown
@@ -219,7 +219,7 @@ After structure approval:
 1. **Present the draft plan location**:
    ```
    I've created the initial implementation plan at:
-   `agent-resources/thoughts/shared/plans/YYYY-MM-DD-ENG-XXXX-description.md`
+   `agent-resources/thoughts/shared/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
 
    Please review it and let me know:
    - Are the phases properly scoped?
