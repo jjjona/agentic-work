@@ -15,7 +15,7 @@ Expected folders and files created by the workflow:
 
 - `agent-resources/thoughts/research/YYYY-MM-DD-HHMM-description.md` for research artifacts.
 - `agent-resources/thoughts/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md` for implementation plans.
-- `agent-resources/thoughts/progress/YYYY-MM-DD-HHMM-<slug>--resume-memo.md` for compact progress memos.
+- `agent-resources/thoughts/progress/YYYY-MM-DD-HHMM-<slug>.md` for compact progress memos.
 
 ## Usage
 

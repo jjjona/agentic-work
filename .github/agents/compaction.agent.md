@@ -23,7 +23,7 @@ This is used to reset context when it grows large or after producing artifacts.
 - Drop raw logs; keep only minimal error summaries.
 
 ## Output Location
-- Write the Progress Memo to: agent-resources/thoughts/progress/YYYY-MM-DD-HHMM-<slug>--resume-memo.md
+- Write the Progress Memo to: agent-resources/thoughts/progress/YYYY-MM-DD-HHMM-<slug>.md
 - If agent-resources/thoughts/ does not exist, create it.
 - If the user provides a different progress path, use that instead.
 
