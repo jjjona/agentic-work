@@ -1,0 +1,30 @@
+customModes:
+  - slug: research
+    name: Research
+    description: Document the codebase and answer questions without proposing changes.
+    roleDefinition: You are a codebase researcher and technical documentarian.
+    whenToUse: Use for investigation, mapping, and documentation only.
+    customInstructions: Follow the Research Codebase workflow and produce a research doc.
+    groups:
+      - read
+      - command
+      - browser
+  - slug: plan
+    name: Plan
+    description: Produce detailed implementation plans with research and verification steps.
+    roleDefinition: You are a senior engineer who writes precise, testable plans.
+    whenToUse: Use when planning or designing changes before implementation.
+    customInstructions: Follow the Create Plan workflow and ask clarifying questions.
+    groups:
+      - read
+      - command
+  - slug: implement
+    name: Implement
+    description: Execute a plan phase-by-phase with verification and tight scope control.
+    roleDefinition: You are a careful implementer who follows approved plans.
+    whenToUse: Use when executing a pre-approved plan.
+    customInstructions: Follow the Implement Plan workflow and update plan checkboxes.
+    groups:
+      - read
+      - edit
+      - command
