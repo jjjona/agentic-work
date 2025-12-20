@@ -228,13 +228,17 @@ After structure approval:
    - Missing edge cases or considerations?
    ```
 
-2. **Iterate based on feedback** - be ready to:
+2. **Compact after writing**
+   - After the plan doc is written, switch to the Compaction mode.
+   - Write/update the Progress Memo with only the minimal resumable state.
+
+3. **Iterate based on feedback** - be ready to:
    - Add missing phases
    - Adjust technical approach
    - Clarify success criteria (both automated and manual)
    - Add/remove scope items
 
-3. **Continue refining** until the user is satisfied
+4. **Continue refining** until the user is satisfied
 
 ## Important Guidelines
 
@@ -273,6 +277,8 @@ After structure approval:
    - Do NOT write the plan with unresolved questions
    - The implementation plan must be complete and actionable
    - Every decision must be made before finalizing the plan
+7. **Compaction When Needed**:
+   - If the chat context is getting long, switch to the Compaction mode before proceeding.
 
 ## Success Criteria Guidelines
 
@@ -365,4 +371,3 @@ Based on the ticket, I understand we need to track parent-child relationships fo
 
 [Interactive process continues...]
 ```
-

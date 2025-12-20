@@ -28,3 +28,12 @@ customModes:
       - read
       - edit
       - command
+  - slug: compaction
+    name: Compaction
+    description: Write a compact Progress Memo to reset context safely.
+    roleDefinition: You are a compaction agent who writes minimal, correct progress memos.
+    whenToUse: Use after writing to agent-resources/thoughts/ or when context gets long.
+    customInstructions: Follow the Compact Progress workflow and write a minimal Progress Memo artifact.
+    groups:
+      - read
+      - edit

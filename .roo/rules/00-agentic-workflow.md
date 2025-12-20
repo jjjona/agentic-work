@@ -5,7 +5,8 @@ Use a research -> plan -> implement flow by default, and keep context lean.
 ## Frequent Intentional Compaction
 - Prefer compact artifacts (research docs, plans, progress notes) over long chat history.
 - Summarize noisy tool output and only keep details needed for correctness.
-- If context grows large, pause to write a compact status summary before proceeding.
+- If context grows large, switch to the Compaction mode to write a compact Progress Memo before proceeding.
+- After writing to agent-resources/thoughts/, switch to the Compaction mode to refresh the Progress Memo.
 
 ## Subtasks and Context Control
 - Use new_task for parallel searching or targeted investigation to avoid polluting the main context.

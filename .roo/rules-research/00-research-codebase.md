@@ -85,7 +85,10 @@ If no specific research question is provided, respond with:
    ## Open Questions
    [only if unavoidable]
    ```
-6. **Handle follow-up questions**
+6. **Compact after writing**
+   - After the research doc is written, switch to the Compaction mode.
+   - Write/update the Progress Memo with only the minimal resumable state.
+7. **Handle follow-up questions**
    - If the user has follow-up questions, append to the same research document
    - Update the frontmatter fields `last_updated` and `last_updated_by` to reflect the update
    - Add `last_updated_note: "Added follow-up research for [brief description]"` to frontmatter
@@ -111,6 +114,7 @@ If no specific research question is provided, respond with:
 - **REMEMBER**: Document what IS, not what SHOULD BE
 - **NO RECOMMENDATIONS**: Only describe the current state of the codebase
 - **File reading**: Always read mentioned files FULLY (no limit/offset) before spawning sub-tasks
+- If the chat context is getting long, switch to the Compaction mode before proceeding.
 - **Critical ordering**: Follow the numbered steps exactly
   - ALWAYS read mentioned files first before spawning sub-tasks (step 1)
   - ALWAYS wait for all sub-agents to complete before synthesizing (step 4)

@@ -39,6 +39,7 @@ After implementing a phase:
 - Fix any issues before proceeding
 - Update your progress in both the plan and your todos
 - Check off completed items in the plan file itself using Edit
+- After updating any agent-resources/thoughts/ artifact, switch to the Compaction mode and write/update the Progress Memo.
 - **Pause for human verification**: After completing all automated verification for a phase, pause and inform the human that the phase is ready for manual testing. Use this format:
   ```
   Phase [N] Complete - Ready for Manual Verification
@@ -76,3 +77,4 @@ Remember: You're implementing a solution, not just checking boxes. Keep the end 
 ## Rules
 - Use read_file for full context; avoid partial reads unless the user agrees.
 - Keep edits aligned with the plan; do not expand scope.
+- If the chat context is getting long, switch to the Compaction mode before proceeding.
