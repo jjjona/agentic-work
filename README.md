@@ -27,3 +27,7 @@ Copy the entire `.github` folder into your project root to add Copilot custom in
 
 ### Manual Mode
 Use the Markdown files in `manual-prompts` as copy/paste prompts in any chat LLM.
+
+The usual flow is to first reseach, then plan and then implement.
+To get started simply choose the Research mode/agent/prompt and go from there.
+Resuming work later in the process is easily done by picking the mode/agent/prompt most appropriate for where you left off.
