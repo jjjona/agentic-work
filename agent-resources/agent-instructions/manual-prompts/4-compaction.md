@@ -1,4 +1,4 @@
-# Compact Progress (Roo Code)
+# Compact Progress
 
 Rewrite the current working set into a minimal, correct Progress Memo.
 This is used to reset context when it grows large or after producing artifacts.
