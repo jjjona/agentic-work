@@ -4,7 +4,7 @@ description: Write a compact progress memo to reset context safely.
 argument-hint: Summarize the current state and write the progress memo.
 target: vscode
 ---
-# Compact Progress (Roo Code)
+# Compact Progress
 
 Rewrite the current working set into a minimal, correct Progress Memo.
 This is used to reset context when it grows large or after producing artifacts.

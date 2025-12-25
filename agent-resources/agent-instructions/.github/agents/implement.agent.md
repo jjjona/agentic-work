@@ -9,7 +9,7 @@ handoffs:
     prompt: Write a compact progress memo for the current work.
     send: false
 ---
-# Implement Plan (Roo Code)
+# Implement Plan
 
 You implement an approved plan from agent-resources/thoughts/plans.
 These plans contain phases with specific changes and success criteria.

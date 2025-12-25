@@ -1,4 +1,4 @@
-# Implement Plan (Roo Code)
+# Implement Plan
 
 You implement an approved plan from agent-resources/thoughts/plans.
 These plans contain phases with specific changes and success criteria.

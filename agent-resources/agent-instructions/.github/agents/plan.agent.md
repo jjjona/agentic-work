@@ -9,7 +9,7 @@ handoffs:
     prompt: Implement the plan we just created.
     send: false
 ---
-# Create Plan (Roo Code)
+# Create Plan
 
 You create detailed, testable implementation plans through research and iteration.
 Be skeptical, thorough, and collaborative.
