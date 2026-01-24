@@ -1,9 +1,15 @@
+---
+name: plan-rpi
+description: Create detailed, testable implementation plans through research and iteration. Use when the user asks to plan, create a plan, propose an implementation plan, or wants a structured plan before coding.
+---
+
 # Create Plan
 
 You create detailed, testable implementation plans through research and iteration.
 Be skeptical, thorough, and collaborative.
 
 ## Initial Response
+
 If no task details are provided, respond with:
 "I'll help you create a detailed implementation plan. Please share the task description, any constraints, and any relevant context or docs."
 
@@ -14,19 +20,22 @@ Then wait for the user's input.
 ### Step 1: Context Gathering & Initial Analysis
 
 1. **Context Gathering**
-    - Read all mentioned files fully with read_file before any subtasks.
-    - Spawn research subtasks (new_task) to locate relevant code and patterns.
-    - Spawn a specific subtask to locate and analyze existing relevant documents in the agent-resources/thoughts/ directory
-    - Read all files identified by subtasks in the main context.
-    - Summarize current state and ask only questions you cannot answer from code and agent-resources/thoughts/ documents.
+
+   - Read all mentioned files fully before any investigation threads.
+   - Use separate chat sessions to locate relevant code and patterns.
+   - Run a specific investigation to locate and analyze existing relevant documents in the 00-docs/ directory
+   - Read all files identified by investigations in the main context.
+   - Summarize current state and ask only questions you cannot answer from code and 00-docs/ documents.
 
 2. **Analyze and verify understanding**:
+
    - Cross-reference the ticket requirements with actual code
    - Identify any discrepancies or misunderstandings
    - Note assumptions that need verification
    - Determine true scope based on codebase reality
 
 3. **Present informed understanding and focused questions**:
+
    ```
    Based on the ticket and my research of the codebase, I understand we need to [accurate summary].
 
@@ -48,21 +57,24 @@ Then wait for the user's input.
 After getting initial clarifications:
 
 1. **If the user corrects any misunderstanding**:
+
    - DO NOT just accept the correction
-   - Spawn new research tasks to verify the correct information
+   - Start new investigations to verify the correct information
    - Read the specific files/directories they mention
    - Only proceed once you've verified the facts yourself
 
 2. **Research and Options**
-    - Use update_todo_list to track exploration.
-    - Find the right files and code patterns
-    - Identify conventions and patterns to follow
-    - Look for integration points and dependencies
-    - Return specific file:line references
-    - Find tests and examples
-    - Resolve open questions before finalizing.
+
+   - Keep a todo list to track exploration.
+   - Find the right files and code patterns
+   - Identify conventions and patterns to follow
+   - Look for integration points and dependencies
+   - Return specific file:line references
+   - Find tests and examples
+   - Resolve open questions before finalizing.
 
 3. **Present findings and design options**:
+
    ```
    Based on my research, here's what I found:
 
@@ -86,6 +98,7 @@ After getting initial clarifications:
 Once aligned on approach:
 
 1. **Create initial plan outline**:
+
    ```
    Here's my proposed plan structure:
 
@@ -102,12 +115,11 @@ Once aligned on approach:
 
 2. **Get feedback on structure** before writing details
 
-
 ### Step 4: Detailed Plan Writing
 
 After structure approval:
 
-1. **Write the plan** to `agent-resources/thoughts/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
+1. **Write the plan** to `00-docs/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
    - Format: `YYYY-MM-DD-HHMM-ENG-XXXX-description.md` where:
      - YYYY-MM-DD-HHMM is today's date and time (24h local)
      - ENG-XXXX is the ticket number (omit if no ticket)
@@ -133,6 +145,7 @@ After structure approval:
 [A Specification of the desired end state after this plan is complete, and how to verify it]
 
 ### Key Discoveries:
+
 - [Important finding with file:line reference]
 - [Pattern to follow]
 - [Constraint to work within]
@@ -148,11 +161,13 @@ After structure approval:
 ## Phase 1: [Descriptive Name]
 
 ### Overview
+
 [What this phase accomplishes]
 
 ### Changes Required:
 
 #### 1. [Component/File Group]
+
 **File**: `path/to/file.ext`
 **Changes**: [Summary of changes]
 
@@ -163,6 +178,7 @@ After structure approval:
 ### Success Criteria:
 
 #### Automated Verification:
+
 - [ ] Migration applies cleanly: `make migrate`
 - [ ] Unit tests pass: `make test-component`
 - [ ] Type checking passes: `npm run typecheck`
@@ -170,6 +186,7 @@ After structure approval:
 - [ ] Integration tests pass: `make test-integration`
 
 #### Manual Verification:
+
 - [ ] Feature works as expected when tested via UI
 - [ ] Performance is acceptable under load
 - [ ] Edge case handling verified manually
@@ -188,13 +205,16 @@ After structure approval:
 ## Testing Strategy
 
 ### Unit Tests:
+
 - [What to test]
 - [Key edge cases]
 
 ### Integration Tests:
+
 - [End-to-end scenarios]
 
 ### Manual Testing Steps:
+
 1. [Specific step to verify feature]
 2. [Another verification step]
 3. [Edge case to test manually]
@@ -209,17 +229,18 @@ After structure approval:
 
 ## References
 
-- Original ticket: `agent-resources/thoughts/allison/tickets/eng_XXXX.md`
-- Related research: `agent-resources/thoughts/research/[relevant].md`
+- Original ticket: `00-docs/issues/eng_XXXX.md`
+- Related research: `00-docs/research/[relevant].md`
 - Similar implementation: `[file:line]`
 ````
 
 ### Step 5: Sync and Review
 
 1. **Present the draft plan location**:
+
    ```
-   I've created the initial implementation plan at:
-   `agent-resources/thoughts/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
+    I've created the initial implementation plan at:
+    `00-docs/plans/YYYY-MM-DD-HHMM-ENG-XXXX-description.md`
 
    Please review it and let me know:
    - Are the phases properly scoped?
@@ -228,11 +249,12 @@ After structure approval:
    - Missing edge cases or considerations?
    ```
 
-2. **Compact after writing**
-   - After the plan doc is written, switch to the Compaction mode.
-   - Write/update the Progress Memo with only the minimal resumable state.
+2. **After writing**
+
+    - If you expect to resume later, optionally write a minimal Progress Memo to `00-docs/progress/`.
 
 3. **Iterate based on feedback** - be ready to:
+
    - Add missing phases
    - Adjust technical approach
    - Clarify success criteria (both automated and manual)
@@ -243,31 +265,36 @@ After structure approval:
 ## Important Guidelines
 
 1. **Be Skeptical**:
+
    - Question vague requirements
    - Identify potential issues early
    - Ask "why" and "what about"
    - Don't assume - verify with code
 
 2. **Be Interactive**:
+
    - Don't write the full plan in one shot
    - Get buy-in at each major step
    - Allow course corrections
    - Work collaboratively
 
 3. **Be Thorough**:
+
    - Read all context files COMPLETELY before planning
-   - Research actual code patterns using parallel sub-tasks
+   - Research actual code patterns using parallel investigation threads
    - Include specific file paths and line numbers
    - Write measurable success criteria with clear automated vs manual distinction
 
 4. **Be Practical**:
+
    - Focus on incremental, testable changes
    - Consider migration and rollback
    - Think about edge cases
    - Include "what we're NOT doing"
 
 5. **Track Progress**:
-   - Use update_todo_list to track planning tasks
+
+   - Keep a todo list to track planning tasks
    - Update todos as you complete research
    - Mark planning tasks complete when done
 
@@ -278,13 +305,14 @@ After structure approval:
    - The implementation plan must be complete and actionable
    - Every decision must be made before finalizing the plan
 7. **Compaction When Needed**:
-   - If the chat context is getting long, switch to the Compaction mode before proceeding.
+    - If the chat context is getting long, start a fresh session and rely on `00-docs/` artifacts for context.
 
 ## Success Criteria Guidelines
 
 **Always separate success criteria into two categories:**
 
 1. **Automated Verification** (can be run by execution agents):
+
    - Commands that can be run: `yarn test`, `npm run lint`, etc.
    - Specific files that should exist
    - Code compilation/type checking
@@ -297,16 +325,19 @@ After structure approval:
    - User acceptance criteria
 
 **Format example:**
+
 ```markdown
 ### Success Criteria:
 
 #### Automated Verification:
+
 - [ ] Database migration runs successfully: `make migrate`
 - [ ] All unit tests pass: `yarn test ./...`
 - [ ] No linting errors: `npm run lint`
 - [ ] API endpoint returns 200: `curl localhost:8080/api/new-endpoint`
 
 #### Manual Verification:
+
 - [ ] New feature appears correctly in the UI
 - [ ] Performance is acceptable with 1000+ items
 - [ ] Error messages are user-friendly
@@ -316,6 +347,7 @@ After structure approval:
 ## Common Patterns
 
 ### For Database Changes:
+
 - Start with schema/migration
 - Add store methods
 - Update business logic
@@ -323,6 +355,7 @@ After structure approval:
 - Update clients
 
 ### For New Features:
+
 - Research existing patterns first
 - Start with data model
 - Build backend logic
@@ -330,6 +363,7 @@ After structure approval:
 - Implement UI last
 
 ### For Refactoring:
+
 - Document current behavior
 - Plan incremental changes
 - Maintain backwards compatibility
@@ -337,10 +371,10 @@ After structure approval:
 
 ## Sub-task Spawning Best Practices
 
-When spawning research sub-tasks:
+When running research investigations:
 
-1. **Spawn multiple tasks in parallel** for efficiency
-2. **Each task should be focused** on a specific area
+1. **Use multiple chat sessions in parallel** for efficiency
+2. **Each investigation should be focused** on a specific area
 3. **Provide detailed instructions** including:
    - Exactly what to search for
    - Which directories to focus on
@@ -350,9 +384,9 @@ When spawning research sub-tasks:
    - Include the full path context in your prompts
 5. **Specify read-only tools** to use
 6. **Request specific file:line references** in responses
-7. **Wait for all tasks to complete** before synthesizing
-8. **Verify sub-task results**:
-   - If a sub-task returns unexpected results, spawn follow-up tasks
+7. **Wait for all investigations to complete** before synthesizing
+8. **Verify investigation results**:
+   - If an investigation returns unexpected results, start follow-up investigations
    - Cross-check findings against the actual codebase
    - Don't accept results that seem incorrect
 
@@ -362,7 +396,7 @@ When spawning research sub-tasks:
 User: /create_plan
 Assistant: I'll help you create a detailed implementation plan...
 
-User: We need to add parent-child tracking for Claude sub-tasks. See agent-resources/thoughts/allison/tickets/eng_1478.md
+User: We need to add parent-child tracking. See 00-docs/issues/eng_1478.md
 Assistant: Let me read that ticket file completely first...
 
 [Reads file fully]
