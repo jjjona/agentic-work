@@ -13,7 +13,7 @@ Ask: "What area or question should I research?" Then wait.
 ## Steps
 1. **Read every directly-mentioned file fully first** (no limit/offset). Do this before spawning any subagent.
 2. **Decompose** the question into focused areas; track them in a todo list. Think hard about the underlying patterns and connections the user is after.
-3. **Spawn parallel read-only subagents** (Task tool, e.g. the Explore agent), one per area. Tell each exactly what to find, which directories to look in, and to "return file:line references." Spawn one to scan `00-docs/` for prior art.
+3. **Spawn parallel `codebase-explorer` subagents** (Task tool) — one per area, **one question each**; prefer several narrow explorers over a few broad ones (each runs on Haiku, so don't overload it). Tell each exactly what to find and which directories to look in. Spawn one to scan `00-docs/` for prior art.
 4. **Wait for all subagents, then synthesize** in the main context:
    - Prefer live code as the source of truth; treat `00-docs/` as historical context.
    - Connect findings across components; include file:line for every key claim.

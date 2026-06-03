@@ -14,7 +14,7 @@ Ask for the task description, constraints, and any relevant docs. Then wait.
 
 ### 1. Gather context
 - Read all mentioned files fully (no limit/offset).
-- Spawn read-only subagents (Task tool) to locate relevant code/patterns and to scan `00-docs/` for related work; read what they surface in the main context.
+- Decompose the work into focused areas; spawn one `codebase-explorer` subagent per area (Task tool, read-only, Haiku) — **one question each**, preferring several narrow explorers over a few broad ones — to locate relevant code/patterns and scan `00-docs/` for related work. Read what they surface in the main context.
 - Summarize current state. Ask ONLY questions you genuinely cannot answer from code or `00-docs/`:
   ```
   Based on the ticket and my research, we need to [accurate summary].
@@ -27,7 +27,7 @@ Ask for the task description, constraints, and any relevant docs. Then wait.
 
 ### 2. Verify & explore
 - If the user corrects you, don't just accept it — verify against the actual files before proceeding.
-- Find conventions, integration points, dependencies, tests, and examples; return file:line refs.
+- Find conventions, integration points, dependencies, tests, and examples (spawn more `codebase-explorer` subagents as needed); return file:line refs.
 - Present design options with trade-offs and agree on a direction.
 - Resolve every open question before writing the plan.
 
