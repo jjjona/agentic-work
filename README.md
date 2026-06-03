@@ -1,6 +1,6 @@
 # agentic-work — the `ds` Claude Code plugin
 
-An artifact-first **Research → Plan → Implement** workflow for Claude Code, packaged as the `ds` plugin (skills invoked as `/ds:research`, `/ds:plan`, …). Based on Dex Horthy's talk: https://www.youtube.com/watch?v=rmvDxxNubIg
+An artifact-first **Research → Plan → Implement** workflow for Claude Code, packaged as the `ds` plugin (skills invoked as `/ds:research`, `/ds:plan`, …).
 
 ## Why
 
@@ -13,11 +13,9 @@ An artifact-first **Research → Plan → Implement** workflow for Claude Code, 
 ## Install (Claude Code plugin)
 
 ```
-/plugin marketplace add <git-url-or-local-path-to-this-repo>
+/plugin marketplace add https://github.com/jjjona/agentic-work
 /plugin install ds@ds-tools
 ```
-
-To share company-wide, push this repo somewhere everyone can `git`-access, then have colleagues run the two commands above. Rename the marketplace (`ds-tools` in `.claude-plugin/marketplace.json`) to your team's catalog name if you like.
 
 ## Skills
 
@@ -38,7 +36,7 @@ Skills trigger implicitly from how you phrase the request, or explicitly as `/ds
 
 Between major steps, **start a fresh session** and anchor on the artifact, e.g.
 "Plan the changes from `00-docs/02-research/2026-01-24-1530-auth-flow.md`."
-Each step may take several passes — iterate.
+Each step may take several passes, so iterate.
 
 `/ds:create-issue` is optional; use it to capture a bug or feature first, then feed it into research.
 
