@@ -1,97 +1,52 @@
-This project contains a lightweight, artifact-first agentic workflow for brownfield projects, based on Dex Horthy's talk https://www.youtube.com/watch?v=rmvDxxNubIg
+# agentic-work — the `ds` Claude Code plugin
 
-The talk is fast and dense, you might want to watch it twice :)
+An artifact-first **Research → Plan → Implement** workflow for Claude Code, packaged as the `ds` plugin (skills invoked as `/ds:research`, `/ds:plan`, …). Based on Dex Horthy's talk: https://www.youtube.com/watch?v=rmvDxxNubIg
 
-I updated the workflow to be skill-based because skills are an open standard and are now supported by most AI coding tools without extra setup.
+## Why
 
-## How This Is Meant To Be Used
+1. **Durable artifacts live in the repo** (`00-docs/`), so work is resumable without chat history.
+2. **Skills load only when needed**, keeping context lean — and lean context means better output.
+3. Spend your effort on research and planning; that effort is magnified during implementation.
 
-This workflow is built around following ideas:
+> Good research + a good plan = good code. A bad plan = exponential pain during implementation.
 
-1) Durable artifacts are created by AI and live in the repo (`00-docs/`), so work is resumable without chat history.
-2) Skills are loaded only when needed, keeping context clean.
-3) The goal is to keep contexts as clean and lean as possible because filled up contexts will significantly affect generated code. The more stuff is in your context, the less usefull the AI's output will be.
+## Install (Claude Code plugin)
 
-### The core flow (iterate as needed)
+```
+/plugin marketplace add <git-url-or-local-path-to-this-repo>
+/plugin install ds@ds-tools
+```
 
-1. Research the codebase (targeted, evidence-based)
-2. Turn research into a detailed plan (make decisions here)
-3. Execute the plan phase-by-phase (small, verified steps)
-
-Each step can take multiple passes. Spend the time on research and planning, the time you spend here is magnified in the results.
-
-Good research + a good plan = good code.
-Bad plan = exponential pain during implementation.
-
-### Keep context clean
-
-Between major steps, start a new conversation and anchor the next step on artifacts.
-Example: "Let's plan the changes from `00-docs/research/2026-01-24-1530-auth-flow.md`".
-
-### Why skills help
-
-- The agent can see a short list of available skills (name + description)
-- The full instructions for a skill are not loaded until the skill is invoked
-- Skills can be invoked implicitly (by asking in a way that matches the description) or explicitly (depending on the tool)
-- This keeps skill instructions out of the context until you need them.
-
-Examples that should naturally trigger the included skills:
-
-- Research: "Research the codebase for how authentication works"
-- Plan: "Create a detailed plan to change [current problem I have], use the research in file `00-docs/research/...`"
-- Implement: "Implement phase 1 of the plan in file `00-docs/plans/...`"
-
-`create-issue-rpi` is optional. I sometimes use it to describe a bug report or small feature request and then use that as base for the research step. Example: "Create an issue for the following bug: A user reported issues while trying to fill out form x. Field y should be populated by [some endpoint] but returned 500. Check following locations ..."
+To share company-wide, push this repo somewhere everyone can `git`-access, then have colleagues run the two commands above. Rename the marketplace (`ds-tools` in `.claude-plugin/marketplace.json`) to your team's catalog name if you like.
 
 ## Skills
 
-This repo ships reusable skills under `skills/`. Skills are an open standard supported by multiple agent systems.
+| Skill | Use it when |
+|-------|-------------|
+| `/ds:research` | "Research how authentication works" — documents the current codebase, no changes. |
+| `/ds:plan` | "Create a plan to do X, using `00-docs/02-research/...`" — interactive, phased, testable plan. |
+| `/ds:implement` | "Implement phase 1 of `00-docs/03-plans/...`" — executes a phase and verifies it. |
+| `/ds:create-issue` | "Create an issue for this bug ..." — captures a structured issue brief. |
 
-You can install these skills either:
+Skills trigger implicitly from how you phrase the request, or explicitly as `/ds:research`, `/ds:plan`, etc.
 
-- Per-project (checked into the repo)
-- Per-user (in your home directory)
+## The loop (iterate as needed)
 
-### Roo Code (VS Code extension)
+1. **Research** the codebase (targeted, evidence-based) → `00-docs/02-research/`
+2. **Plan** from that research (make all decisions here) → `00-docs/03-plans/`
+3. **Implement** the plan phase-by-phase (small, verified steps)
 
-Roo loads skills from:
+Between major steps, **start a fresh session** and anchor on the artifact, e.g.
+"Plan the changes from `00-docs/02-research/2026-01-24-1530-auth-flow.md`."
+Each step may take several passes — iterate.
 
-- Project: `.roo/skills/<skill-name>/SKILL.md`
-- Personal: `~/.roo/skills/<skill-name>/SKILL.md`
+`/ds:create-issue` is optional; use it to capture a bug or feature first, then feed it into research.
 
-### GitHub Copilot (coding agent / Copilot CLI)
+## Artifacts (`00-docs/`)
 
-Copilot supports skills in:
+Created in your target project at runtime (the plugin does not ship them):
 
-- Project: `.github/skills/<skill-name>/SKILL.md`
-- Personal: `~/.copilot/skills/<skill-name>/SKILL.md`
-
-Important: Agent Skills are currently experimental, enable setting `chat.useAgentSkills` in the settings.
-
-### OpenCode CLI
-
-OpenCode loads skills from:
-
-- Project: `.opencode/skills/<skill-name>/SKILL.md` (also supports `.claude/skills/...`)
-- Personal: `~/.config/opencode/skills/<skill-name>/SKILL.md` (also supports `~/.claude/skills/...`)
-
-### Codex CLI
-
-Codex loads skills from:
-
-- Project: `.codex/skills/<skill-name>/SKILL.md`
-- Personal: `~/.codex/skills/<skill-name>/SKILL.md`
-
-Restart Codex after adding skills.
-
-### Claude Code
-
-Claude Code loads skills from:
-
-- Project: `.claude/skills/<skill-name>/SKILL.md`
-- Personal: `~/.claude/skills/<skill-name>/SKILL.md`
-
-## Installing These Repo Skills
-
-This repository keeps the canonical skill definitions in `skills/`.
-To install, copy (or symlink) each skill folder into the appropriate tool directory above.
+- `00-docs/01-issues/` — issue briefs
+- `00-docs/02-research/` — current-state writeups
+- `00-docs/03-plans/` — phased, testable plans
+- `00-docs/04-progress/` — short memos to resume work later

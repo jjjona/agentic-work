@@ -1,0 +1,7 @@
+{
+  "name": "ds",
+  "version": "0.1.0",
+  "description": "Artifact-first Research → Plan → Implement workflow. Skills write durable docs to 00-docs/ so work resumes across fresh sessions.",
+  "author": { "name": "jjjona" },
+  "keywords": ["workflow", "planning", "research", "skills"]
+}

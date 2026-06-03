@@ -1,0 +1,14 @@
+{
+  "name": "ds-tools",
+  "owner": { "name": "jjjona" },
+  "metadata": {
+    "description": "Catalog hosting the ds plugin — an artifact-first Research → Plan → Implement workflow for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "ds",
+      "source": "./",
+      "description": "Research → Plan → Implement workflow skills (research, plan, implement, create-issue)."
+    }
+  ]
+}
