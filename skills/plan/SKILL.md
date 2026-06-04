@@ -397,7 +397,7 @@ When running research, spawn the plugin's `ds:codebase-explorer` via the **Agent
 User: /ds:plan
 Assistant: I'll help you create a detailed implementation plan...
 
-User: We need to add parent-child tracking. See 00-docs/01-issues/eng_1478.md
+User: We need to add parent-child tracking. See 00-docs/01-issues/2025-01-08-parent-child-tracking.md
 Assistant: Let me read that ticket file completely first...
 
 [Reads file fully]
