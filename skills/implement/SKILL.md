@@ -1,45 +1,97 @@
 ---
 name: implement
-description: Implement an approved plan from 00-docs/03-plans — execute phases in order and verify success criteria. Use when the user asks to implement, execute, or follow a plan, or says "start phase X", "continue with the plan", "continue with phase X".
+description: Implement an approved plan from 00-docs/03-plans — execute phases in order, pausing for human verification after each phase (don't chain phases unless told to). Use when the user asks to implement, execute, or follow a plan, or says "start phase X", "continue with the plan", "continue with phase X".
 ---
 
 # Implement Plan
 
-Execute an approved plan from `00-docs/03-plans`. Follow the plan's intent, adapt to reality, keep progress visible.
+You implement an approved plan from `00-docs/03-plans`.
+These plans contain phases with specific changes and success criteria.
+Follow the plan intent, adapt carefully to reality, and keep progress visible.
 
-## Start
-- If no plan path is given, ask for one.
-- Read the plan fully, plus the ticket and every file it references (no limit/offset — you need full context).
-- Note existing `- [x]` checkmarks; resume from the first unchecked item and trust completed work.
-- Build a todo list from the phases.
+## Getting Started
 
-## Execute
-- Implement each phase fully before the next; stay within the plan's scope.
-- Check off items in the plan file as you complete them.
-- If reality doesn't match the plan, STOP and surface it:
+- If no plan path is provided, ask for one.
+- Read the plan completely and check for any existing checkmarks (`- [x]`).
+- Read the original ticket and all files mentioned in the plan.
+- **Read files fully** — never use limit/offset parameters, you need complete context.
+- Think deeply about how the pieces fit together.
+- Create a todo list for plan phases (use a markdown checklist).
+
+## Implementation Philosophy
+
+Plans are carefully designed, but reality can be messy. Your job is to:
+
+- Follow the plan's intent while adapting to what you find
+- Implement each phase fully before moving to the next
+- Verify your work makes sense in the broader codebase context
+- Update checkboxes in the plan as you complete sections
+
+When things don't match the plan exactly, think about why and communicate clearly. The plan is your guide, but your judgment matters too.
+
+If you encounter a mismatch:
+
+- STOP and think deeply about why the plan can't be followed
+- Present the issue clearly:
+
   ```
   Issue in Phase [N]:
   Expected: [what the plan says]
   Found: [actual situation]
-  Why it matters: [explanation]
+  Why this matters: [explanation]
+
   How should I proceed?
   ```
 
-## Verify each phase
-- Run the automated success criteria; fix failures before moving on.
-- Then pause for human verification:
+## Verification Approach
+
+After implementing a phase:
+
+- Run the success criteria checks
+- Fix any issues before proceeding
+- Update your progress in both the plan and your todos
+- Check off completed items in the plan file itself
+- If you expect to resume later, optionally write/update a Progress Memo in `00-docs/04-progress/`.
+- **Pause for human verification**: After completing all automated verification for a phase, pause and inform the human that the phase is ready for manual testing. Use this format:
+
   ```
-  Phase [N] complete — ready for manual verification.
-  Automated checks passed:
-  - [list]
-  Please verify manually:
-  - [manual items from the plan]
-  Tell me when done so I can start Phase [N+1].
+  Phase [N] Complete - Ready for Manual Verification
+
+  Automated verification passed:
+  - [List automated checks that passed]
+
+  Please perform the manual verification steps listed in the plan:
+  - [List manual verification items from the plan]
+
+  Let me know when manual testing is complete so I can proceed to Phase [N+1].
   ```
-- Don't check off manual items until the user confirms.
-- If told to run multiple phases consecutively, skip the pause until the last one.
+
+If instructed to execute multiple phases consecutively, skip the pause until the last phase. Otherwise, assume you are just doing one phase.
+
+Do not check off items in the manual testing steps until confirmed by the user.
+
+## If You Get Stuck
+
+When something isn't working as expected:
+
+- First, make sure you've read and understood all the relevant code
+- Consider if the codebase has evolved since the plan was written
+- Present the mismatch clearly and ask for guidance
+
+Use `codebase-explorer` subagents sparingly — mainly for targeted debugging or exploring unfamiliar territory.
+
+## Resuming Work
+
+If the plan has existing checkmarks:
+
+- Trust that completed work is done
+- Pick up from the first unchecked item
+- Verify previous work only if something seems off
+
+Remember: You're implementing a solution, not just checking boxes. Keep the end goal in mind and maintain forward momentum.
 
 ## Rules
-- Read files fully; don't expand scope beyond the plan.
-- If context gets long, start a fresh session and rely on `00-docs/` artifacts (and the plan's checkmarks) to resume.
-- Optionally update a progress memo in `00-docs/04-progress/` if you'll resume later.
+
+- Read files fully for complete context; avoid partial reads unless the user agrees.
+- Keep edits aligned with the plan; do not expand scope.
+- If the chat context is getting long, start a fresh session and rely on `00-docs/` artifacts (and the plan's checkmarks) for context.
