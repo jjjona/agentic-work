@@ -119,14 +119,14 @@ Once aligned on approach:
 
 After structure approval:
 
-1. **Write the plan** to `00-docs/03-plans/<prefix>-[ENG-XXXX-]description.md`
+1. **Write the plan** to `00-docs/03-plans/<prefix>-[ticket-]description.md`
    - Get the prefix by running `date +%Y-%m-%d-%H%M` and use its exact output — never write the timestamp from memory.
-   - Format: `<prefix>-ENG-XXXX-description.md` where:
+   - Format: `<prefix>-[ticket-]description.md` where:
      - `<prefix>` is the `date +%Y-%m-%d-%H%M` output (today's date and 24h local time)
-     - `ENG-XXXX` is the ticket number (omit if no ticket)
+     - `ticket` is the ticket id if there is one (omit if no ticket)
      - `description` is a brief kebab-case description
    - Examples:
-     - With ticket: `2025-01-08-1430-ENG-1478-parent-child-tracking.md`
+     - With ticket: `2025-01-08-1430-1478-parent-child-tracking.md`
      - Without ticket: `2025-01-08-1430-improve-error-handling.md`
 2. **Use this template structure**:
 
@@ -241,7 +241,7 @@ After structure approval:
 
    ```
    I've created the initial implementation plan at:
-   `00-docs/03-plans/<prefix>-ENG-XXXX-description.md`
+   `00-docs/03-plans/<prefix>-[ticket-]description.md`
 
    Please review it and let me know:
    - Are the phases properly scoped?
